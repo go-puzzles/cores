@@ -4,7 +4,7 @@ import "context"
 
 type Puzzle interface {
 	Name() string
-	StartPuzzle(*Options) error
+	StartPuzzle(context.Context, *Options) error
 	Stop() error
 }
 
@@ -14,7 +14,7 @@ func (c *CoreService) wrapPuzzles() {
 			name:   puzzle.Name(),
 			daemon: true,
 			fn: func(ctx context.Context) error {
-				return puzzle.StartPuzzle(c.options())
+				return puzzle.StartPuzzle(ctx, c.options())
 			},
 		}
 
