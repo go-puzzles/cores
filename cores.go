@@ -36,12 +36,13 @@ type CoreService struct {
 }
 
 type Options struct {
-	Ctx         context.Context
-	ServiceName string
-	Tags        []string
-	Cmux        cmux.CMux
-	puzzles     map[string]Puzzle
-	workers     []Worker
+	Ctx          context.Context
+	ListenerAddr string
+	ServiceName  string
+	Tags         []string
+	Cmux         cmux.CMux
+	puzzles      map[string]Puzzle
+	workers      []Worker
 }
 
 // RegisterPuzzle will put Puzzle into cores service
@@ -133,6 +134,7 @@ func (c *CoreService) listenCmux() mountFn {
 
 func (c *CoreService) runWithListener(lis net.Listener) error {
 	c.opts.Cmux = cmux.New(lis)
+	c.opts.ListenerAddr = lis.Addr().String()
 	return c.serve()
 }
 
