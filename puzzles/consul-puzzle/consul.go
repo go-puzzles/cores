@@ -8,6 +8,7 @@ import (
 
 	"github.com/go-puzzles/cores"
 	"github.com/go-puzzles/cores/discover"
+	"github.com/go-puzzles/cores/share"
 	"github.com/go-puzzles/plog"
 	"github.com/pkg/errors"
 )
@@ -22,12 +23,20 @@ func WithConsulRegsiter() cores.ServiceOption {
 }
 
 func (cp *consulPuzzle) Name() string {
-	return "ConsulHandler"
+	return "ConsulRegsiterHandler"
 }
 
 func (cp *consulPuzzle) StartPuzzle(ctx context.Context, opt *cores.Options) error {
+	if share.GetConsulEnable() {
+		return errors.New("consul register handler need enable consul first in pflags")
+	}
+
 	if opt.ListenerAddr == "" {
-		return errors.New("Consul Handler can only be used when the service is listening on a port")
+		return errors.New("consul register handler can only be used when the service is listening on a port")
+	}
+
+	if opt.ServiceName == "" {
+		return errors.New("consul register handler need a ServiceName to registe")
 	}
 
 	if len(opt.Tags) == 0 {
