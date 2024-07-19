@@ -27,7 +27,7 @@ func (cp *consulPuzzle) Name() string {
 }
 
 func (cp *consulPuzzle) StartPuzzle(ctx context.Context, opt *cores.Options) error {
-	if share.GetConsulEnable() {
+	if !share.GetConsulEnable() {
 		return errors.New("consul register handler need enable consul first in pflags")
 	}
 
