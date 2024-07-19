@@ -3,7 +3,7 @@ module github.com/go-puzzles/cores
 go 1.22.0
 
 require (
-	github.com/go-puzzles/plog v1.0.1
+	github.com/go-puzzles/plog v1.0.4
 	github.com/hashicorp/consul/api v1.29.2
 	github.com/lukesampson/figlet v0.0.0-20190211215653-8a3ef4a6ac42
 	github.com/pkg/errors v0.9.1
