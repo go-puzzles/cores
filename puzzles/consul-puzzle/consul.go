@@ -15,6 +15,12 @@ import (
 type consulPuzzle struct {
 }
 
+func WithConsulRegsiter() cores.ServiceOption {
+	return func(o *cores.Options) {
+		o.RegisterPuzzle(&consulPuzzle{})
+	}
+}
+
 func (cp *consulPuzzle) Name() string {
 	return "ConsulHandler"
 }
