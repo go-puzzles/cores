@@ -4,7 +4,7 @@ go 1.22.0
 
 require (
 	github.com/fullstorydev/grpcui v1.5.0
-	github.com/go-puzzles/plog v1.0.5
+	github.com/go-puzzles/plog v1.0.6
 	github.com/gorilla/mux v1.8.1
 	github.com/hashicorp/consul/api v1.29.2
 	github.com/lukesampson/figlet v0.0.0-20190211215653-8a3ef4a6ac42
