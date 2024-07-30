@@ -1,4 +1,7 @@
 # go-puzzles/cores
+简单易用、足够轻量、性能好的 Golang 服务、任务的管理、监控核心 
+
+Easy to use, light enough, good performance Golang worker or service manager and monitor core library
 
 ## 特性
 简单易用、足够轻量，避免过多的外部依赖
