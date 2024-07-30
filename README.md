@@ -137,3 +137,9 @@ func main() {
     // ....
 }
 ```
+
+## go-puzzles其他工具集
+[plog日志工具](https://github.com/go-puzzles/plog)
+[pflags flags工具](https://github.com/go-puzzles/pflags)
+[pgorm数据库orm工具](https://github.com/go-puzzles/pgorm)
+更多请详见: [go-puzzles](https://github.com/go-puzzles)
